@@ -1,5 +1,5 @@
-import React, { useCallback, useEffect, useState } from "react";
-import { ActivityIndicator, Text, View } from "react-native";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
+import { Animated, Text } from "react-native";
 import Entypo from "@expo/vector-icons/Entypo";
 import * as SplashScreen from "expo-splash-screen";
 import * as Font from "expo-font";
@@ -9,6 +9,7 @@ SplashScreen.preventAutoHideAsync();
 
 export default function App() {
 	const [appIsReady, setAppIsReady] = useState(false);
+	const animation = useMemo(() => new Animated.Value(0), []);
 
 	useEffect(() => {
 		async function prepare() {
@@ -37,6 +38,12 @@ export default function App() {
 			// we hide the splash screen once we know the root view has already
 			// performed layout.
 			await SplashScreen.hideAsync();
+
+			Animated.timing(animation, {
+				toValue: 1,
+				duration: 1000,
+				useNativeDriver: true,
+			}).start();
 		}
 	}, [appIsReady]);
 
@@ -45,12 +52,17 @@ export default function App() {
 	}
 
 	return (
-		<View
-			style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
+		<Animated.View
+			style={{
+				flex: 1,
+				alignItems: "center",
+				justifyContent: "center",
+				opacity: animation,
+			}}
 			onLayout={onLayoutRootView}
 		>
 			<Text>SplashScreen Demo! 👋</Text>
 			<Entypo name="rocket" size={30} />
-		</View>
+		</Animated.View>
 	);
 }
