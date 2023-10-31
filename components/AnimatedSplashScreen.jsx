@@ -7,6 +7,20 @@ import * as Font from "expo-font";
 // Keep the splash screen visible while we fetch resources
 SplashScreen.preventAutoHideAsync();
 
+function cacheImages(images) {
+	return images.map((image) => {
+		if (typeof image === "string") {
+			return Image.prefetch(image);
+		} else {
+			return Asset.fromModule(image).downloadAsync();
+		}
+	});
+}
+
+function cacheFonts(fonts) {
+	return fonts.map((font) => Font.loadAsync(font));
+}
+
 export default function AnimatedSplashScreen({ children, image }) {
 	const animation = useMemo(() => new Animated.Value(1), []);
 	const [isAppReady, setAppReady] = useState(false);
@@ -22,12 +36,16 @@ export default function AnimatedSplashScreen({ children, image }) {
 		}
 	}, [isAppReady]);
 
-	const onFontLoaded = useCallback(async () => {
+	const onResourcesLoaded = useCallback(async () => {
 		try {
 			await SplashScreen.hideAsync();
+
 			// Pre-load fonts, make any API calls you need to do here
-			await Font.loadAsync(Entypo.font);
-			await Promise.all([]);
+			const imageAssets = cacheImages([]);
+
+			const fontAssets = cacheFonts([Entypo.font]);
+
+			await Promise.all([...imageAssets, ...fontAssets]);
 		} catch (e) {
 			console.warn(e);
 		} finally {
@@ -61,7 +79,7 @@ export default function AnimatedSplashScreen({ children, image }) {
 							],
 						}}
 						source={image}
-						onLoadEnd={onFontLoaded}
+						onLoadEnd={onResourcesLoaded}
 						fadeDuration={0}
 					/>
 				</Animated.View>
