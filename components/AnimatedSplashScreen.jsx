@@ -4,12 +4,10 @@ import * as SplashScreen from "expo-splash-screen";
 
 // Keep the splash screen visible while we fetch resources
 SplashScreen.preventAutoHideAsync();
-
 export default function AnimatedSplashScreen({ children, image }) {
 	const animation = useMemo(() => new Animated.Value(1), []);
 	const [isAppReady, setIsAppReady] = useState(false);
 	const [isSplashAnimationComplete, setAnimationComplete] = useState(false);
-
 	useEffect(() => {
 		if (isAppReady) {
 			Animated.timing(animation, {
@@ -19,7 +17,6 @@ export default function AnimatedSplashScreen({ children, image }) {
 			}).start(() => setAnimationComplete(true));
 		}
 	}, [isAppReady]);
-
 	const onImageLoaded = useCallback(async () => {
 		try {
 			await SplashScreen.hideAsync();
@@ -31,9 +28,12 @@ export default function AnimatedSplashScreen({ children, image }) {
 			setIsAppReady(true);
 		}
 	}, []);
-
 	return (
-		<View style={{ flex: 1 }}>
+		<View
+			style={{
+				flex: 1,
+			}}
+		>
 			{isAppReady && children}
 			{!isSplashAnimationComplete && (
 				<Animated.View
