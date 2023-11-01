@@ -28,9 +28,9 @@ export default function MainScreen() {
 
 				const fontAssets = cacheFonts([
 					Entypo.font,
-					Font.loadAsync({
+					{
 						SFProBold: require("../assets/fonts/SF-Pro-Text-Bold.otf"),
-					}),
+					},
 				]);
 
 				await Promise.all([...imageAssets, ...fontAssets]);
@@ -45,16 +45,14 @@ export default function MainScreen() {
 		loadResourcesAndDataAsync();
 	}, []);
 
+	if (!mainScreenIsReady) {
+		return null;
+	}
+
 	return (
-		<>
-			{mainScreenIsReady && (
-				<View
-					style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
-				>
-					<Text style={{ fontFamily: "SFProBold" }}>SplashScreen Demo! 👋</Text>
-					<Entypo name="rocket" size={30} />
-				</View>
-			)}
-		</>
+		<View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+			<Text style={{ fontFamily: "SFProBold" }}>SplashScreen Demo! 👋</Text>
+			<Entypo name="rocket" size={30} />
+		</View>
 	);
 }
