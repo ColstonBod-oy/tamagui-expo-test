@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Text, View } from "react-native";
+import { Image, StyleSheet, Text, View } from "react-native";
 import * as Font from "expo-font";
+import { Asset } from "expo-asset";
 import Entypo from "@expo/vector-icons/Entypo";
 
 function cacheImages(images) {
@@ -24,7 +25,7 @@ export default function MainScreen() {
 	useEffect(() => {
 		async function loadResourcesAndDataAsync() {
 			try {
-				const imageAssets = cacheImages([]);
+				const imageAssets = cacheImages([require("../assets/images/logo.png")]);
 
 				const fontAssets = cacheFonts([
 					Entypo.font,
@@ -51,8 +52,17 @@ export default function MainScreen() {
 
 	return (
 		<View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-			<Text style={{ fontFamily: "SFProBold" }}>SplashScreen Demo! 👋</Text>
+			<Image source={require("../assets/images/logo.png")} />
+			<Text style={styles.logoText}>Helpmate</Text>
 			<Entypo name="rocket" size={30} />
 		</View>
 	);
 }
+
+const styles = StyleSheet.create({
+	logoText: {
+		color: "#EC472E",
+		fontSize: 48,
+		fontFamily: "SFProBold",
+	},
+});
