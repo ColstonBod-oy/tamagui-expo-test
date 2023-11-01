@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
 import * as Font from "expo-font";
 import { Asset } from "expo-asset";
-import Entypo from "@expo/vector-icons/Entypo";
 
 function cacheImages(images) {
 	return images.map((image) => {
@@ -28,7 +27,6 @@ export default function MainScreen() {
 				const imageAssets = cacheImages([require("../assets/images/logo.png")]);
 
 				const fontAssets = cacheFonts([
-					Entypo.font,
 					{
 						SFProBold: require("../assets/fonts/SF-Pro-Text-Bold.otf"),
 					},
@@ -54,7 +52,6 @@ export default function MainScreen() {
 		<View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
 			<Image source={require("../assets/images/logo.png")} />
 			<Text style={styles.logoText}>Helpmate</Text>
-			<Entypo name="rocket" size={30} />
 		</View>
 	);
 }
