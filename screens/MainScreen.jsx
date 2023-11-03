@@ -63,35 +63,40 @@ export default function MainScreen() {
 		return null;
 	}
 	return (
-		<View
-			style={{
-				flex: 1,
-				alignItems: "center",
-				justifyContent: "center",
-			}}
-		>
+		<View style={styles.mainScreenContainer}>
 			<Image source={require("../assets/images/logo.png")} />
 			<Text style={styles.logoText}>{"Helpmate"}</Text>
 			<Button
 				action={"primary"}
 				variant={"outline"}
-				size={"lg"}
+				size={"xl"}
 				borderColor={"#EC472E"}
 				borderWidth={4}
 				isDisabled={false}
+				style={styles.button}
 			>
-				<ButtonText style={{ fontFamily: "SFProBold" }} color={"#EC472E"}>
-					Scan
-				</ButtonText>
+				<ButtonText style={styles.buttonText}>Scan</ButtonText>
 			</Button>
 		</View>
 	);
 }
 const styles = StyleSheet.create({
+	mainScreenContainer: {
+		flex: 1,
+		alignItems: "center",
+		justifyContent: "center",
+	},
 	logoText: {
 		color: "#EC472E",
+		letterSpacing: -2,
 		paddingTop: 40,
 		fontSize: 48,
-		fontFamily: "SFProBold",
+	},
+	button: {
+		marginTop: 100,
+	},
+	buttonText: {
+		color: "#EC472E",
+		fontSize: 22,
 	},
 });
