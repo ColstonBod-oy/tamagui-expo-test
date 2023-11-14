@@ -65,7 +65,7 @@ export default function HomeScreen() {
 	return (
 		<View style={styles.homeScreenContainer}>
 			<Image source={require("../assets/images/logo.png")} />
-			<Text size={"5xl"} color={"#EC472E"}>
+			<Text size={"5xl"} color={"#EC472E"} letterSpacing={-2.2}>
 				{"Helpmate"}
 			</Text>
 			<Button
@@ -75,6 +75,7 @@ export default function HomeScreen() {
 				borderColor={"#EC472E"}
 				borderWidth={"$4"}
 				mt={"$16"}
+				h={"$16"}
 			>
 				<ButtonText size={"2xl"} color={"#EC472E"}>
 					Scan
