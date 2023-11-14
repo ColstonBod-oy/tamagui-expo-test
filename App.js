@@ -1,9 +1,10 @@
 import React from "react";
 import AnimatedSplashScreen from "./components/AnimatedSplashScreen";
-import MainScreen from "./screens/MainScreen";
+import HomeScreen from "./screens/HomeScreen";
 import { GluestackUIProvider } from "@gluestack-ui/themed";
 import { createConfig } from "@gluestack-ui/themed";
 import { config as defaultConfig } from "@gluestack-ui/config"; // Optional if you want to use default theme
+import { NavigationContainer } from "@react-navigation/native";
 const config = createConfig({
 	...defaultConfig,
 	tokens: {
@@ -17,10 +18,12 @@ const config = createConfig({
 });
 export default function App() {
 	return (
-		<GluestackUIProvider config={config}>
-			<AnimatedSplashScreen image={require("./assets/images/splash.png")}>
-				<MainScreen />
-			</AnimatedSplashScreen>
-		</GluestackUIProvider>
+		<NavigationContainer>
+			<GluestackUIProvider config={config}>
+				<AnimatedSplashScreen image={require("./assets/images/splash.png")}>
+					<HomeScreen />
+				</AnimatedSplashScreen>
+			</GluestackUIProvider>
+		</NavigationContainer>
 	);
 }

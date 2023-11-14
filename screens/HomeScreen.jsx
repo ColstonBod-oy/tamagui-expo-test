@@ -36,8 +36,8 @@ function cacheImages(images) {
 function cacheFonts(fonts) {
 	return fonts.map((font) => Font.loadAsync(font));
 }
-export default function MainScreen() {
-	const [mainScreenIsReady, setMainScreenIsReady] = useState(false);
+export default function HomeScreen() {
+	const [homeScreenIsReady, setHomeScreenIsReady] = useState(false);
 
 	// Load any resources or data that you need before rendering the app
 	useEffect(() => {
@@ -54,16 +54,16 @@ export default function MainScreen() {
 				// You might want to provide this error information to an error reporting service
 				console.warn(e);
 			} finally {
-				setMainScreenIsReady(true);
+				setHomeScreenIsReady(true);
 			}
 		}
 		loadResourcesAndDataAsync();
 	}, []);
-	if (!mainScreenIsReady) {
+	if (!homeScreenIsReady) {
 		return null;
 	}
 	return (
-		<View style={styles.mainScreenContainer}>
+		<View style={styles.homeScreenContainer}>
 			<Image source={require("../assets/images/logo.png")} />
 			<Text size={"5xl"} color={"#EC472E"}>
 				{"Helpmate"}
@@ -84,7 +84,7 @@ export default function MainScreen() {
 	);
 }
 const styles = StyleSheet.create({
-	mainScreenContainer: {
+	homeScreenContainer: {
 		flex: 1,
 		alignItems: "center",
 		justifyContent: "center",
