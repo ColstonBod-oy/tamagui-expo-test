@@ -30,7 +30,11 @@ export default function App() {
 							component={HomeScreen}
 							options={{ headerShown: false }}
 						/>
-						<Stack.Screen name="Messages" component={MessagesScreen} />
+						<Stack.Screen
+							name="Messages"
+							component={MessagesScreen}
+							options={{ title: "Received" }}
+						/>
 					</Stack.Navigator>
 				</NavigationContainer>
 			</AnimatedSplashScreen>
