@@ -36,7 +36,7 @@ function cacheImages(images) {
 function cacheFonts(fonts) {
 	return fonts.map((font) => Font.loadAsync(font));
 }
-export default function HomeScreen() {
+export default function HomeScreen({ navigation }) {
 	const [homeScreenIsReady, setHomeScreenIsReady] = useState(false);
 
 	// Load any resources or data that you need before rendering the app
@@ -76,6 +76,7 @@ export default function HomeScreen() {
 				borderWidth={"$4"}
 				mt={"$16"}
 				h={"$16"}
+				onPress={() => navigation.navigate("Messages")}
 			>
 				<ButtonText size={"2xl"} color={"#EC472E"}>
 					Scan
