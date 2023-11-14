@@ -65,17 +65,20 @@ export default function MainScreen() {
 	return (
 		<View style={styles.mainScreenContainer}>
 			<Image source={require("../assets/images/logo.png")} />
-			<Text style={styles.logoText}>{"Helpmate"}</Text>
+			<Text size={"5xl"} color={"#EC472E"}>
+				{"Helpmate"}
+			</Text>
 			<Button
 				action={"primary"}
 				variant={"outline"}
 				size={"xl"}
 				borderColor={"#EC472E"}
-				borderWidth={4}
-				isDisabled={false}
-				style={styles.button}
+				borderWidth={"$4"}
+				mt={"$16"}
 			>
-				<ButtonText style={styles.buttonText}>Scan</ButtonText>
+				<ButtonText size={"2xl"} color={"#EC472E"}>
+					Scan
+				</ButtonText>
 			</Button>
 		</View>
 	);
@@ -85,18 +88,5 @@ const styles = StyleSheet.create({
 		flex: 1,
 		alignItems: "center",
 		justifyContent: "center",
-	},
-	logoText: {
-		color: "#EC472E",
-		letterSpacing: -2,
-		paddingTop: 40,
-		fontSize: 48,
-	},
-	button: {
-		marginTop: 100,
-	},
-	buttonText: {
-		color: "#EC472E",
-		fontSize: 22,
 	},
 });
