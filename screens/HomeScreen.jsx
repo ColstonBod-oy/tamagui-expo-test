@@ -1,25 +1,4 @@
-import {
-	Box,
-	Center,
-	Button,
-	ButtonText,
-	ButtonIcon,
-	ButtonGroup,
-	Icon,
-	AddIcon,
-	InfoIcon,
-	ButtonSpinner,
-	ArrowUpIcon,
-	Heading,
-	Text,
-	HStack,
-	VStack,
-	ThreeDotsIcon,
-	Input,
-	InputField,
-} from "@gluestack-ui/themed";
-import { EditIcon, ArrowLeftIcon } from "lucide-react-native";
-
+import { Button, ButtonText, Text } from "@gluestack-ui/themed";
 import React, { useEffect, useState } from "react";
 import { Image, StyleSheet, View } from "react-native";
 import * as Font from "expo-font";
