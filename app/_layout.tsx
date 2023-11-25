@@ -6,13 +6,9 @@ import {
   ThemeProvider
 } from "@react-navigation/native";
 import { Stack } from "expo-router";
-import * as SplashScreen from "expo-splash-screen";
 import { TamaguiProvider, Text, Theme } from "tamagui";
 
-import { MySafeAreaView } from "../components/MySafeAreaView";
 import config from "../tamagui.config";
-
-SplashScreen.preventAutoHideAsync();
 
 export default function Layout() {
   const colorScheme = useColorScheme();
@@ -24,13 +20,11 @@ export default function Layout() {
           <ThemeProvider
             value={colorScheme === "light" ? DefaultTheme : DarkTheme}
           >
-            <MySafeAreaView>
-              <Stack
-                screenOptions={{
-                  headerShown: false
-                }}
-              />
-            </MySafeAreaView>
+            <Stack
+              screenOptions={{
+                headerShown: false
+              }}
+            />
           </ThemeProvider>
         </Theme>
       </Suspense>
