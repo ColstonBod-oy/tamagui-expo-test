@@ -1,18 +1,16 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
-import {
-  Animated,
-  Image,
-  ImageSourcePropType,
-  StyleSheet,
-  View
-} from "react-native";
+import { Animated, ImageSourcePropType, StyleSheet, View } from "react-native";
 import { Asset } from "expo-asset";
 import Constants from "expo-constants";
 import * as Font from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
-import { Button, Text } from "tamagui";
+import { Image } from "tamagui";
 
-import { MySafeAreaView } from "../components/MySafeAreaView";
+import { StyledButton } from "../components/StyledButton";
+import { StyledSafeAreaView } from "../components/StyledSafeAreaView";
+import { StyledStack } from "../components/StyledStack";
+import { StyledTextHeading } from "../components/StyledTextHeading";
+import { StyledYGroup } from "../components/StyledYGroup";
 
 // Instruct SplashScreen not to hide yet, we want to do this manually
 SplashScreen.preventAutoHideAsync().catch(() => {
@@ -87,7 +85,7 @@ function AnimatedSplashScreen({ children, image }: SplashScreenProps) {
       const imageAssets = cacheImages([require("../assets/images/logo.png")]);
       const fontAssets = cacheFonts([
         {
-          SFProBold: require("../assets/fonts/SF-Pro-Text-Bold.otf")
+          SFProBold: require("../assets/fonts/SFProText-Bold.ttf")
         }
       ]);
       await Promise.all([...imageAssets, ...fontAssets]);
@@ -135,20 +133,14 @@ function AnimatedSplashScreen({ children, image }: SplashScreenProps) {
 
 function MainScreen() {
   return (
-    <MySafeAreaView>
-      <View style={styles.homeScreenContainer}>
-        <Image source={require("../assets/images/logo.png")} />
-        <Text>Helpmate</Text>
-        <Button>Scan</Button>
-      </View>
-    </MySafeAreaView>
+    <StyledSafeAreaView>
+      <StyledStack>
+        <StyledYGroup>
+          <Image source={require("../assets/images/logo.png")} />
+          <StyledTextHeading>Helpmate</StyledTextHeading>
+        </StyledYGroup>
+        <StyledButton>Scan</StyledButton>
+      </StyledStack>
+    </StyledSafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  homeScreenContainer: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
-  }
-});

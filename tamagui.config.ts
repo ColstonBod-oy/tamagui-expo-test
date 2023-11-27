@@ -28,9 +28,21 @@ const SFProBold = createFont({
   family: "SFProBold",
   size: {
     true: 16,
-    sm: 16,
-    md: 24,
-    lg: 36
+    1: 16,
+    2: 18,
+    6: 20,
+    10: 48
+  },
+  lineHeight: {
+    2: 22
+  },
+  weight: {
+    1: 400,
+    3: 700
+  },
+  letterSpacing: {
+    1: 0,
+    2: -1
   }
 });
 
