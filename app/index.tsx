@@ -3,6 +3,7 @@ import { Animated, ImageSourcePropType, StyleSheet, View } from "react-native";
 import { Asset } from "expo-asset";
 import Constants from "expo-constants";
 import * as Font from "expo-font";
+import { Link } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { Image } from "tamagui";
 
@@ -139,7 +140,12 @@ function MainScreen() {
           <Image source={require("../assets/images/logo.png")} />
           <StyledTextHeading>Helpmate</StyledTextHeading>
         </StyledYGroup>
-        <StyledButton>Scan</StyledButton>
+        <Link
+          href="/messages-screen"
+          asChild
+        >
+          <StyledButton>Scan</StyledButton>
+        </Link>
       </StyledStack>
     </StyledSafeAreaView>
   );
