@@ -6,7 +6,11 @@ import { StyledSafeAreaView } from "../../components/StyledSafeAreaView";
 export default function MessagesLayout() {
   return (
     <StyledSafeAreaView>
-      <Stack />
+      <Stack
+        screenOptions={{
+          headerTitle: "Messages"
+        }}
+      />
     </StyledSafeAreaView>
   );
 }

@@ -9,19 +9,20 @@ import {
 } from "tamagui";
 
 const CustomListItemFrame = styled(ListItemFrame, {
-  backgroundColor: "orange" // or "$color", etc.
+  backgroundColor: "#EC472E",
+  paddingVertical: "$3"
 });
 
 const CustomListItemTitle = styled(ListItemTitle, {
-  color: "blue"
+  color: "#FFFFFF"
 });
 
 const CustomListItemSubtitle = styled(ListItemSubtitle, {
-  color: "pink"
+  color: "#f3f4f6"
 });
 
 const CustomListItemText = styled(ListItemText, {
-  color: "red"
+  color: "#FFFFFF"
 });
 
 export const ListItem = CustomListItemFrame.styleable<ListItemProps>(
