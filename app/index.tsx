@@ -5,13 +5,12 @@ import Constants from "expo-constants";
 import * as Font from "expo-font";
 import { Link } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
-import { Image } from "tamagui";
+import { Image, YGroup } from "tamagui";
 
 import { StyledButton } from "../components/StyledButton";
 import { StyledSafeAreaView } from "../components/StyledSafeAreaView";
 import { StyledStack } from "../components/StyledStack";
 import { StyledTextHeading } from "../components/StyledTextHeading";
-import { StyledYGroup } from "../components/StyledYGroup";
 
 // Instruct SplashScreen not to hide yet, we want to do this manually
 SplashScreen.preventAutoHideAsync().catch(() => {
@@ -136,10 +135,10 @@ function MainScreen() {
   return (
     <StyledSafeAreaView>
       <StyledStack>
-        <StyledYGroup>
+        <YGroup alignItems="center">
           <Image source={require("../assets/images/logo.png")} />
           <StyledTextHeading>Helpmate</StyledTextHeading>
-        </StyledYGroup>
+        </YGroup>
         <Link
           href="/messages-screen"
           asChild

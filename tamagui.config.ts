@@ -21,6 +21,20 @@ const animations = createAnimations({
     damping: 20,
     mass: 1.2,
     stiffness: 250
+  },
+  fast: {
+    damping: 20,
+    mass: 1.2,
+    stiffness: 250
+  },
+  medium: {
+    damping: 10,
+    mass: 0.9,
+    stiffness: 100
+  },
+  slow: {
+    damping: 20,
+    stiffness: 60
   }
 });
 

@@ -1,90 +1,141 @@
-import React from "react";
-import { ChevronRight, Info } from "@tamagui/lucide-icons";
-import { ScrollView, Separator, YGroup } from "tamagui";
+import React, { useState } from "react";
+import {
+  ChevronDown,
+  ChevronRight,
+  Info,
+  MessageCircle
+} from "@tamagui/lucide-icons";
+import { Sheet } from "@tamagui/sheet";
+import { Button, ScrollView, Separator, YGroup } from "tamagui";
 
 import { ListItem } from "../../components/ListItem";
 
 export default function Messages() {
+  const [open, setOpen] = useState(false);
+
   return (
-    <ScrollView>
-      <YGroup
-        alignSelf="center"
-        bordered
-        padding={"5%"}
-        size="$5"
-        separator={<Separator />}
+    <>
+      <Button
+        size="$6"
+        circular
+        icon={MessageCircle}
+        backgroundColor={"#e5e7eb"}
+        position={"absolute"}
+        zIndex={100_000}
+        top={"86%"}
+        left={"80%"}
+        onPress={() => setOpen(true)}
+      />
+      <ScrollView>
+        <YGroup
+          alignSelf="center"
+          bordered
+          padding={"5%"}
+          size="$5"
+          separator={<Separator />}
+        >
+          <ListItem
+            title="Lorem Ipsum"
+            subTitle="Lorem ipsum dolor sit amet..."
+            icon={Info}
+            iconAfter={ChevronRight}
+            color={"#FFFFFF"}
+          />
+          <ListItem
+            title="Lorem Ipsum"
+            subTitle="Lorem ipsum dolor sit amet..."
+            icon={Info}
+            iconAfter={ChevronRight}
+            color={"#FFFFFF"}
+          />
+          <ListItem
+            title="Lorem Ipsum"
+            subTitle="Lorem ipsum dolor sit amet..."
+            icon={Info}
+            iconAfter={ChevronRight}
+            color={"#FFFFFF"}
+          />
+          <ListItem
+            title="Lorem Ipsum"
+            subTitle="Lorem ipsum dolor sit amet..."
+            icon={Info}
+            iconAfter={ChevronRight}
+            color={"#FFFFFF"}
+          />
+          <ListItem
+            title="Lorem Ipsum"
+            subTitle="Lorem ipsum dolor sit amet..."
+            icon={Info}
+            iconAfter={ChevronRight}
+            color={"#FFFFFF"}
+          />
+          <ListItem
+            title="Lorem Ipsum"
+            subTitle="Lorem ipsum dolor sit amet..."
+            icon={Info}
+            iconAfter={ChevronRight}
+            color={"#FFFFFF"}
+          />
+          <ListItem
+            title="Lorem Ipsum"
+            subTitle="Lorem ipsum dolor sit amet..."
+            icon={Info}
+            iconAfter={ChevronRight}
+            color={"#FFFFFF"}
+          />
+          <ListItem
+            title="Lorem Ipsum"
+            subTitle="Lorem ipsum dolor sit amet..."
+            icon={Info}
+            iconAfter={ChevronRight}
+            color={"#FFFFFF"}
+          />
+          <ListItem
+            title="Lorem Ipsum"
+            subTitle="Lorem ipsum dolor sit amet..."
+            icon={Info}
+            iconAfter={ChevronRight}
+            color={"#FFFFFF"}
+          />
+          <ListItem
+            title="Lorem Ipsum"
+            subTitle="Lorem ipsum dolor sit amet..."
+            icon={Info}
+            iconAfter={ChevronRight}
+            color={"#FFFFFF"}
+          />
+        </YGroup>
+      </ScrollView>
+      <Sheet
+        forceRemoveScrollEnabled={open}
+        modal={true}
+        open={open}
+        onOpenChange={setOpen}
+        snapPoints={[50, 25]}
+        dismissOnSnapToBottom
+        zIndex={100_000}
+        animation="medium"
       >
-        <ListItem
-          title="Lorem Ipsum"
-          subTitle="Lorem ipsum dolor sit amet..."
-          icon={Info}
-          iconAfter={ChevronRight}
-          color={"#FFFFFF"}
+        <Sheet.Overlay
+          animation="lazy"
+          enterStyle={{ opacity: 0 }}
+          exitStyle={{ opacity: 0 }}
         />
-        <ListItem
-          title="Lorem Ipsum"
-          subTitle="Lorem ipsum dolor sit amet..."
-          icon={Info}
-          iconAfter={ChevronRight}
-          color={"#FFFFFF"}
-        />
-        <ListItem
-          title="Lorem Ipsum"
-          subTitle="Lorem ipsum dolor sit amet..."
-          icon={Info}
-          iconAfter={ChevronRight}
-          color={"#FFFFFF"}
-        />
-        <ListItem
-          title="Lorem Ipsum"
-          subTitle="Lorem ipsum dolor sit amet..."
-          icon={Info}
-          iconAfter={ChevronRight}
-          color={"#FFFFFF"}
-        />
-        <ListItem
-          title="Lorem Ipsum"
-          subTitle="Lorem ipsum dolor sit amet..."
-          icon={Info}
-          iconAfter={ChevronRight}
-          color={"#FFFFFF"}
-        />
-        <ListItem
-          title="Lorem Ipsum"
-          subTitle="Lorem ipsum dolor sit amet..."
-          icon={Info}
-          iconAfter={ChevronRight}
-          color={"#FFFFFF"}
-        />
-        <ListItem
-          title="Lorem Ipsum"
-          subTitle="Lorem ipsum dolor sit amet..."
-          icon={Info}
-          iconAfter={ChevronRight}
-          color={"#FFFFFF"}
-        />
-        <ListItem
-          title="Lorem Ipsum"
-          subTitle="Lorem ipsum dolor sit amet..."
-          icon={Info}
-          iconAfter={ChevronRight}
-          color={"#FFFFFF"}
-        />
-        <ListItem
-          title="Lorem Ipsum"
-          subTitle="Lorem ipsum dolor sit amet..."
-          icon={Info}
-          iconAfter={ChevronRight}
-          color={"#FFFFFF"}
-        />
-        <ListItem
-          title="Lorem Ipsum"
-          subTitle="Lorem ipsum dolor sit amet..."
-          icon={Info}
-          iconAfter={ChevronRight}
-          color={"#FFFFFF"}
-        />
-      </YGroup>
-    </ScrollView>
+        <Sheet.Handle />
+        <Sheet.Frame
+          padding="$4"
+          justifyContent="center"
+          alignItems="center"
+          space="$5"
+        >
+          <Button
+            size="$6"
+            circular
+            icon={ChevronDown}
+            onPress={() => setOpen(false)}
+          />
+        </Sheet.Frame>
+      </Sheet>
+    </>
   );
 }
