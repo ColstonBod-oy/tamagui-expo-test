@@ -7,6 +7,7 @@ export const StyledButton = styled(Button, {
   alignSelf: "center",
   iconAfter: Activity,
   size: "$6",
+  borderColor: "black",
   backgroundColor: "#EC472E",
 
   pressStyle: {

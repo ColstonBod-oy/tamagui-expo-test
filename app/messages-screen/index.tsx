@@ -1,12 +1,14 @@
 import React, { useState } from "react";
-import {
-  ChevronDown,
-  ChevronRight,
-  Info,
-  MessageCircle
-} from "@tamagui/lucide-icons";
+import { ChevronRight, Info, MessageCircle, Send } from "@tamagui/lucide-icons";
 import { Sheet } from "@tamagui/sheet";
-import { Button, ScrollView, Separator, YGroup } from "tamagui";
+import {
+  Button,
+  Input,
+  ScrollView,
+  Separator,
+  TextArea,
+  YGroup
+} from "tamagui";
 
 import { ListItem } from "../../components/ListItem";
 
@@ -30,9 +32,15 @@ export default function Messages() {
         <YGroup
           alignSelf="center"
           bordered
-          padding={"5%"}
+          borderColor={"black"}
+          margin={"5%"}
           size="$5"
-          separator={<Separator />}
+          separator={
+            <Separator
+              y={-0.1}
+              borderColor={"black"}
+            />
+          }
         >
           <ListItem
             title="Lorem Ipsum"
@@ -111,7 +119,7 @@ export default function Messages() {
         modal={true}
         open={open}
         onOpenChange={setOpen}
-        snapPoints={[50, 25]}
+        snapPoints={[65, 50, 25]}
         dismissOnSnapToBottom
         zIndex={100_000}
         animation="medium"
@@ -128,10 +136,18 @@ export default function Messages() {
           alignItems="center"
           space="$5"
         >
+          <Input
+            placeholder="Header"
+            width={"80%"}
+          />
+          <TextArea
+            placeholder="Enter details..."
+            width={"80%"}
+          />
           <Button
             size="$6"
             circular
-            icon={ChevronDown}
+            icon={Send}
             onPress={() => setOpen(false)}
           />
         </Sheet.Frame>

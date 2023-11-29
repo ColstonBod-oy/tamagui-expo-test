@@ -51,8 +51,8 @@ const SFProBold = createFont({
     2: 22
   },
   weight: {
-    1: 400,
-    3: 700
+    1: "400",
+    3: "700"
   },
   letterSpacing: {
     1: 0,
