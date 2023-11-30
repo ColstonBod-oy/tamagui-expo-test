@@ -43,13 +43,13 @@ export default function Messages() {
   }
 
   const submitHandler = (inputValue, textAreaValue) => {
-    setData((prevTodo) => {
+    setData((prevData) => {
       return [
         {
           value: { subject: inputValue, details: textAreaValue },
           key: Math.random().toString()
         },
-        ...prevTodo
+        ...prevData
       ];
     });
   };
