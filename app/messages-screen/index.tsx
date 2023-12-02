@@ -98,7 +98,7 @@ export default function Messages() {
         modal={true}
         open={open}
         onOpenChange={setOpen}
-        snapPoints={[50]}
+        snapPoints={[isKeyboardVisible ? 60 : 50]}
         dismissOnSnapToBottom
         zIndex={100_000}
         animation="medium"
@@ -114,8 +114,8 @@ export default function Messages() {
           alignItems="center"
         >
           <YGroup
-            padding="$2"
-            width={"85%"}
+            width={"80%"}
+            paddingTop={isKeyboardVisible ? "10%" : 0}
           >
             <Input
               placeholder="Subject"
